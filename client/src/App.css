@@ -1,0 +1,59 @@
+.component {
+    padding-bottom: 1vh;
+    min-width: 100px;
+    min-height: 50px;
+
+    & + & {
+        margin-top: 2vh;
+    }
+}
+
+
+.title,
+.subtitle {
+    text-transform: uppercase;
+    letter-spacing: 0.51rem;
+    border-radius: 0;
+    font-weight: 900;
+    text-shadow: 0 0 1px var(--color-red);
+
+    &.primary {
+        margin: 0 0 1vh 0;
+        padding: 0 0 1vh 0;
+        font-size: 32px;
+    }
+
+    &.secondary {
+        margin: 0 0 .5vh 0;
+        padding: 0 0 .5vh 0;
+        font-size: 24px;
+    }
+}
+
+.subtitle {
+    font-weight: 500;
+
+    &.primary {
+        font-size: 24px;
+    }
+
+    &.secondary {
+        font-size: 16px;
+    }
+}
+
+.button-container {
+    width: 200px;
+}
+
+.component {
+    min-width: 1000px;
+    width: 80vw;
+}
+
+.collapsible {
+    &.collapsed {
+        width: 0;
+        display: none;
+    }
+}
