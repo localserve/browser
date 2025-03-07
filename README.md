@@ -35,4 +35,4 @@ pnpm run dev
 
 MIT
 
-Copyrights: &copy; 2025 Anubhav Saini
+Copyright (c) 2025 Anubhav Saini
