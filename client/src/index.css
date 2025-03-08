@@ -3,6 +3,7 @@
     --color-black: #1a1a1a;
     --color-white: #fafafa;
     --color-red: #e11;
+    --color-green: #025502;
 
     --primary-color-accent: orange;
     --secondary-color-accent: rgba(172, 8, 172, 0.89);
@@ -140,6 +141,14 @@ fieldset {
         gap: 0;
     }
 
+    &.m2 {
+        gap: 2vh 4vw;
+    }
+
+    &.mv4 {
+        gap: 4vh 2vw;
+    }
+
     &.vflex {
         flex-direction: column;
     }
@@ -181,5 +190,21 @@ fieldset {
         background-color: var(--primary-color-background);
         color: var(--primary-color-text);
         text-decoration: underline;
+    }
+}
+
+.dot{
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+    margin-right: 10px;
+
+    &.green {
+        background-color: var(--color-green);
+    }
+
+    &.red{
+        background-color: var(--color-red);
     }
 }

@@ -1,4 +1,4 @@
-import { CPUT, DirT, DockerT, EnvT, UserT } from "./types";
+import { CPUT, DirT, DockerContainerT, DockerImageT, DockerT, EnvT, UserT } from "./types";
 
 const defaultCPU: CPUT = {
     app: { user: 1, system: 1 }, machine: [
@@ -70,4 +70,36 @@ const defaultDir: DirT = {
     files: []
 }
 
-export { defaultCPU, defaultUser, defaultEnv, defaultDocker, defaultDir };
+
+const defaultDockerContainer: DockerContainerT = {
+    Command: '"/entrypoint.sh"',
+    CreatedAt: "2025-02-05 16:23:00 +0530 IST",
+    ID: "15236a4063f1",
+    Image: "plantuml/plantuml-server:jetty",
+    Labels: "org.opencontainers.image.created=2024-11-18T18:08:45.552Z,org.opencontainers.image.description=PlantUML Online Server,org.opencontainers.image.licenses=GPL-3.0,org.opencontainers.image.title=plantuml-server,org.opencontainers.image.url=https://github.com/plantuml/plantuml-server,org.opencontainers.image.ref.name=ubuntu,org.opencontainers.image.revision=91b372f3021628fc3adc5d4dd7084facddd53f7b,org.opencontainers.image.source=https://github.com/plantuml/plantuml-server,org.opencontainers.image.version=v1.2024.8",
+    LocalVolumes: "1",
+    Mounts: "47afed0abe2050…",
+    Names: "plantuml",
+    Networks: "bridge",
+    Ports: "0.0.0.0:36363->3636/tcp, [::]:36363->3636/tcp",
+    RunningFor: "4 weeks ago",
+    Size: "0B",
+    State: "running",
+    Status: "Up About an hour",
+}
+
+const defaultDockerImage: DockerImageT = {
+    Containers: 'N/A',
+    CreatedAt: '2024-11-19 00:27:51 +0530 IST',
+    CreatedSince: '3 months ago',
+    Digest: '<none>',
+    ID: 'c0ce8bc92c51',
+    Repository: 'plantuml/plantuml-server',
+    SharedSize: 'N/A',
+    Size: '486MB',
+    Tag: 'jetty',
+    UniqueSize: 'N/A',
+    VirtualSize: '485.7MB'
+}
+
+export { defaultCPU, defaultUser, defaultEnv, defaultDocker, defaultDir, defaultDockerContainer, defaultDockerImage };

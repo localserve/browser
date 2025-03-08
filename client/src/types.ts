@@ -17,6 +17,13 @@ type DockerT = {
     error: null | string;
 }
 
+type DockerJsonT = {
+    version: string;
+    images: Array<DockerImageT>;
+    containers: Array<DockerContainerT>;
+    error: null | string;
+}
+
 type SliderT = {
     name: string;
     min: number;
@@ -55,4 +62,36 @@ type DirT = {
     dirs: string[];
 }
 
-export type { UserT, EnvT, DockerT, SliderT, MachineT, AppT, CPUT, DirT }
+type DockerContainerT = {
+    Command: string;
+    CreatedAt: string;
+    ID: string;
+    Image: string;
+    Labels: string;
+    LocalVolumes: string;
+    Mounts: string;
+    Names: string;
+    Networks: string;
+    Ports: string;
+    RunningFor: string;
+    Size: string;
+    State: string;
+    Status: string;
+}
+
+type DockerImageT = {
+    Containers: string;
+    CreatedAt: string;
+    CreatedSince: string;
+    Digest: string;
+    ID: string;
+    Repository: string;
+    SharedSize: string;
+    Size: string;
+    Tag: string;
+    UniqueSize: string;
+    VirtualSize: string;
+}
+
+
+export type { UserT, EnvT, DockerT, SliderT, MachineT, AppT, CPUT, DirT, DockerContainerT, DockerImageT, DockerJsonT }

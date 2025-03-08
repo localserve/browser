@@ -39,6 +39,7 @@ function Dir({ initialDir }: { initialDir: DirT }) {
 
     return <>
         <VFlex>
+            <div className="title secondary">Directory</div>
             <div>
                 <div>
                     {editingPath && <div>Path:
