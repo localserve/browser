@@ -1,4 +1,4 @@
-import { CPUT, DirT, DockerContainerT, DockerImageT, DockerT, EnvT, UserT } from "./types";
+import { CPUT, DatabaseT, DirT, DockerContainerT, DockerImageT, DockerT, EnvT, UserT } from "./types";
 
 const defaultCPU: CPUT = {
     app: { user: 1, system: 1 }, machine: [
@@ -102,4 +102,25 @@ const defaultDockerImage: DockerImageT = {
     VirtualSize: '485.7MB'
 }
 
-export { defaultCPU, defaultUser, defaultEnv, defaultDocker, defaultDir, defaultDockerContainer, defaultDockerImage };
+const defaultDatabase: DatabaseT = {
+    name: "",
+    host: "",
+    port: "",
+    user: "",
+    password: "",
+    isConnected: false,
+    error: false,
+    errmsg: "",
+}
+
+
+export {
+    defaultCPU,
+    defaultDatabase,
+    defaultDir,
+    defaultDocker,
+    defaultDockerContainer,
+    defaultDockerImage,
+    defaultEnv,
+    defaultUser,
+};

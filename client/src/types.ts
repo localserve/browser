@@ -93,5 +93,29 @@ type DockerImageT = {
     VirtualSize: string;
 }
 
+type DatabaseT = {
+    name: string;
+    host: string;
+    port: string;
+    user: string;
+    password: string;
+    isConnected: boolean;
+    error: boolean;
+    errmsg: string;
+}
 
-export type { UserT, EnvT, DockerT, SliderT, MachineT, AppT, CPUT, DirT, DockerContainerT, DockerImageT, DockerJsonT }
+
+export type {
+    AppT,
+    CPUT,
+    DatabaseT,
+    DirT,
+    DockerContainerT,
+    DockerImageT,
+    DockerJsonT,
+    DockerT,
+    EnvT,
+    MachineT,
+    SliderT,
+    UserT,
+}

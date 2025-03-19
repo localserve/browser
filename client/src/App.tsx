@@ -4,12 +4,13 @@ import './App.css'
 
 import { CPU } from './components/cpu'
 import { User } from './components/user';
-import { defaultDir, defaultDocker, defaultEnv, defaultUser } from './defaults';
+import { defaultDatabase, defaultDir, defaultDocker, defaultEnv, defaultUser } from './defaults';
 import { Layout, VFlex } from './components/layout';
 import { SideCollapsible } from './components/collapsible';
 import { Env } from './components/env';
 import { Docker } from './components/docker';
 import { Dir } from './components/dir';
+import { Database } from './components/database';
 
 function App() {
     const defaultShouldShowCPU = (localStorage.getItem("app-should-show-cpu") || "false") === "true";
@@ -22,6 +23,8 @@ function App() {
     const [shouldShowDocker, setShouldShowDocker] = useState<boolean>(defaultShouldShowDocker);
     const defaultShouldShowDir = (localStorage.getItem("app-should-show-dir") || "false") === "true";
     const [shouldShowDir, setShouldShowDir] = useState<boolean>(defaultShouldShowDir);
+    const defaultShouldShowDatabase = (localStorage.getItem("app-should-show-database") || "false") == "true";
+    const [shouldShowDatabase, setShouldShowDatabase] = useState<boolean>(defaultShouldShowDatabase);
 
     function updateShouldShowCPU() {
         setShouldShowCPU(!shouldShowCPU);
@@ -46,6 +49,11 @@ function App() {
     function updateShouldShowDir() {
         setShouldShowDir(!shouldShowDir);
         localStorage.setItem("app-should-show-dir", (!shouldShowDir).toString());
+    }
+
+    function updateShouldShowDatabase() {
+        setShouldShowDatabase(!shouldShowDatabase);
+        localStorage.setItem("app-should-show-database", (!shouldShowDatabase).toString());
     }
 
     return (<div className="app">
@@ -101,6 +109,15 @@ function App() {
                             <input type="checkbox" checked={shouldShowDir} readOnly /> dir
                         </button>
                     </div>
+                    <div className="button-container">
+                        <button
+                            aria-description="button"
+                            className="button"
+                            onClick={updateShouldShowDatabase}
+                        >
+                            <input type="checkbox" checked={shouldShowDatabase} readOnly /> database
+                        </button>
+                    </div>
                 </VFlex>
             </SideCollapsible>
             <>
@@ -109,6 +126,7 @@ function App() {
                 {shouldShowEnv && <div className="component"><Env initialEnv={defaultEnv} /></div>}
                 {shouldShowDocker && <div className="component"><Docker initialDocker={defaultDocker} /></div>}
                 {shouldShowDir && <div className="component"><Dir initialDir={defaultDir} /></div>}
+                {shouldShowDatabase && <div className="component"><Database /></div>}
             </>
         </Layout>
     </div >
