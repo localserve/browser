@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { DirT } from "../types";
 import { Flex, VFlex } from "./layout";
+import { EP_DIR, PORT, SERVER } from "../net/constants";
 
 function Dir({ initialDir }: { initialDir: DirT }) {
     const [dir, setDir] = useState<DirT>(initialDir);
@@ -9,7 +10,7 @@ function Dir({ initialDir }: { initialDir: DirT }) {
     const [editingPath, setEditingPath] = useState(false);
 
     function fetchWithPath(p: string) {
-        fetch(`https://localhost:4420/dir/`,
+        fetch(`${SERVER}:${PORT}/${EP_DIR}`,
             {
                 method: "POST",
                 body: JSON.stringify({ path: p }),
@@ -82,7 +83,7 @@ function Dir({ initialDir }: { initialDir: DirT }) {
                     {
                         dir.files.map((f, index) => {
                             return <div style={{ minWidth: "10vw", textAlign: "right" }} key={`dir-file-${index}`}>
-                                {f}
+                                <a href={path + "/" + f} target="_blank">{f}</a>
                             </div>
                         })
                     }

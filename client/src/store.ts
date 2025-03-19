@@ -1,3 +1,5 @@
+import { defaultUser } from "./defaults";
+
 const store = {
     cpu: {
         refresh: {
@@ -7,7 +9,8 @@ const store = {
             step: 1
         },
         listeners: new Set as Set<() => void>
-    }
+    },
+    user: defaultUser
 };
 
 function updateCpuRefresh(newValue: number) {

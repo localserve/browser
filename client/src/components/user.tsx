@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { UserT } from "../types";
+import { fetchUserMachine } from "../net/user.api";
 
 function User({ initialUser }: { initialUser: UserT }) {
     const [user, setUser] = useState<UserT>(initialUser);
     useEffect(() => {
-        fetch("https://localhost:4420/user/machine", { method: "GET" })
-            .then(res => res.json())
-            .then(data => setUser(data))
-            .catch(console.error);
+        fetchUserMachine().then(setUser);
     }, []);
 
     return <section className="component user flex vflex">
